@@ -1,6 +1,19 @@
+var compression = require('compression')
 var express = require('express');
 var vhost = require('vhost');
 var app = module.exports = express();
+
+app.use(compression({filter: shouldCompress}))
+
+function shouldCompress (req, res) {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false
+  }
+  // fallback to standard filter function
+  return compression.filter(req, res)
+}
+
 app.use(vhost('demo.rossroma.com', require('./demo/index.js')));
 app.use(vhost('movie.rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('www.rossroma.com', require('./movieServer/api.js')));
