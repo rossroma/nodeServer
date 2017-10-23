@@ -14,11 +14,11 @@ function shouldCompress (req, res) {
   return compression.filter(req, res)
 }
 
-app.use(vhost('demo.rossroma.com', require('./demo/index.js')));
 app.use(vhost('movie.rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('www.rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('127.0.0.1', require('./movieServer/api.js')));
+app.use(vhost('192.168.10.87', require('./dinner/api.js')));
 
 var server = app.listen(80, function () {
   var host = server.address().address
