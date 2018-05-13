@@ -17,6 +17,7 @@ function shouldCompress (req, res) {
 app.use(vhost('demo.rossroma.com', require('./demo/index.js')));
 app.use(vhost('movie.rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('chi.rossroma.com', require('./dinner/api.js')));
+app.use(vhost('test.rossroma.com', require('./wcm/api.js')));
 app.use(vhost('www.rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('127.0.0.1', require('./movieServer/api.js')));
