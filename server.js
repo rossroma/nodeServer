@@ -19,7 +19,7 @@ app.use(vhost('chi.rossroma.com', require('./dinner/api.js')));
 app.use(vhost('wcm.rossroma.com', require('./wcm/api.js')));
 app.use(vhost('www.rossroma.com', require('./movieServer/api.js')));
 app.use(vhost('rossroma.com', require('./movieServer/api.js')));
-app.use(vhost('127.0.0.1', require('./wcm/api.js')));
+app.use(vhost('127.0.0.1', require('./dinner/api.js')));
 app.use(vhost('192.168.10.87', require('./wcm/api.js')));
 
 var server = app.listen(80, function () {
